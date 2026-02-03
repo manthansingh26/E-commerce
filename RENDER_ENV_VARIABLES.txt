@@ -1,0 +1,75 @@
+# Environment Variables for Render Deployment
+# Copy and paste these into Render Dashboard → Environment section
+
+# ============================================
+# DATABASE CONFIGURATION (Supabase)
+# ============================================
+NODE_ENV=production
+
+# Option 1: Use DATABASE_URL (Recommended for Render)
+DATABASE_URL=postgresql://postgres:9913386244@As@db.xksgbckzekxuwfuwwyzj.supabase.co:5432/postgres
+
+# Option 2: Use individual variables (Alternative)
+DB_HOST=db.xksgbckzekxuwfuwwyzj.supabase.co
+DB_PORT=5432
+DB_NAME=postgres
+DB_USER=postgres
+DB_PASSWORD=9913386244@As
+
+# ============================================
+# JWT CONFIGURATION
+# ============================================
+# Generate a new secret with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+JWT_SECRET=your-super-secret-jwt-key-minimum-32-characters-long-change-this
+JWT_EXPIRES_IN=7d
+
+# ============================================
+# FRONTEND CONFIGURATION (CORS)
+# ============================================
+# Update this after deploying frontend to Vercel
+FRONTEND_URL=https://your-app.vercel.app
+
+# ============================================
+# EMAIL CONFIGURATION (Gmail)
+# ============================================
+EMAIL_SERVICE=gmail
+EMAIL_USER=aryansondharva25@gmail.com
+EMAIL_PASSWORD=jwjmkyjysdyjmglg
+
+# ============================================
+# RAZORPAY CONFIGURATION (Optional)
+# ============================================
+RAZORPAY_KEY_ID=rzp_test_your_key_id_here
+RAZORPAY_KEY_SECRET=your_key_secret_here
+
+# ============================================
+# RATE LIMITING (Optional - defaults work fine)
+# ============================================
+RATE_LIMIT_WINDOW_MS=60000
+RATE_LIMIT_MAX_REQUESTS=5
+
+# ============================================
+# OTP CONFIGURATION (Optional - defaults work fine)
+# ============================================
+OTP_EXPIRY_MINUTES=10
+OTP_RESEND_LIMIT=3
+OTP_RESEND_WINDOW_MINUTES=60
+
+
+# ============================================
+# INSTRUCTIONS FOR RENDER
+# ============================================
+# 
+# 1. Go to Render Dashboard → Your Web Service
+# 2. Click "Environment" in the left sidebar
+# 3. Click "Add Environment Variable"
+# 4. Copy each variable above (one at a time)
+# 5. Paste Name and Value
+# 6. Click "Save Changes"
+# 
+# IMPORTANT:
+# - Generate a new JWT_SECRET (see command above)
+# - Update FRONTEND_URL after deploying to Vercel
+# - All other values are ready to use
+# 
+# ============================================
